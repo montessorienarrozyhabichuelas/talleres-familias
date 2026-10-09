@@ -451,7 +451,8 @@ footer p{margin:0 0 .4em; font-size:.98rem}
    que aparece dentro de src="..." (termina en ?embedded=true).
    También funciona el enlace corto para compartir.
    ============================================================ */
-const FORM_URL = "";
+const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeuIkke4OEVamboddNSEwSwBtwedWXxiTSOd_wPnUkPRtE_uQ/viewform";
+const FORM_CORTO = "https://forms.gle/M6dFsJn5qCR9haME7";
 
 /* ---------- Formulario ---------- */
 (function(){
@@ -461,7 +462,7 @@ const FORM_URL = "";
     return;
   }
   let src = FORM_URL.trim();
-  const abrir = src.replace('?embedded=true','').replace('&embedded=true','');
+  const abrir = (typeof FORM_CORTO !== 'undefined' && FORM_CORTO) ? FORM_CORTO : src.replace('?embedded=true','').replace('&embedded=true','');
   if (src.includes('docs.google.com/forms') && !src.includes('embedded=true')) {
     src += (src.includes('?') ? '&' : '?') + 'embedded=true';
   }
